@@ -1,0 +1,5 @@
+*~
+build/
+*.txt.user
+__pychace__/
+*.pyc
