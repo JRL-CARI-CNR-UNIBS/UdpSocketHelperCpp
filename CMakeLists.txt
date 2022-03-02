@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(UdpSocketHelperCpp LANGUAGES CXX)
-
+set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 SET(Boost_USE_STATIC_LIBS OFF)
@@ -33,3 +33,10 @@ add_executable(binary_udp_receiver binary_udp_receiver.cpp)
 target_link_libraries( binary_udp_receiver
  ${Boost_LIBRARIES}
 )
+
+INSTALL (
+    DIRECTORY ${CMAKE_SOURCE_DIR}/include/
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.h*")
+
+
