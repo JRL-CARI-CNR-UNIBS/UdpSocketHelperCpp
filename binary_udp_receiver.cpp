@@ -34,17 +34,20 @@ int main(int argc, char* argv[])
   signal (SIGINT,my_handler);
   try
   {
-    if (argc != 2)
+    if (argc != 3)
     {
-      std::cerr << "Usage: blocking_tcp_echo_client <port>\n";
+      std::cerr << "Usage: blocking_tcp_echo_client <port> size\n";
       return 1;
     }
 
     std::string port =argv[1];
     std::cout << "port : " <<std::atoi(port.c_str())<<std::endl;
 
+    std::string size =argv[2];
+    std::cout << "size : " <<std::atoi(port.c_str())<<std::endl;
+
     udp_binary_helper::Receiver receiver(port);
-    receiver.setDataSize(2);
+    receiver.setDataSize(std::atoi(port.c_str()));
 
     while (not stop)
     {
